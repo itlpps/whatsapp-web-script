@@ -48,7 +48,7 @@ function run() {
         input.innerHTML = message;
         input.dispatchEvent(evt);
 
-        document.getElementsByClassName('compose-btn-send')[0].click();
+        document.getElementsByTagName('footer')[0].children[0].children[2].click();
     }, 500);
 }
 
@@ -61,18 +61,18 @@ function getLastMessage() {
 function createRepeatButton() {
     if (document.getElementById('repeatButton') != null)
         return;
-    var composeBar = document.getElementsByClassName('block-compose')[0];
-    if (composeBar == null)
+    var sideBar = document.getElementById('side');
+    if (sideBar == null)
         return;
-    composeBar.oninput = function () {
+    sideBar.oninput = function () {
         editRepeatButton();
     };
     var repeatButton = document.createElement('button');
     repeatButton.setAttribute("id", "repeatButton");
     repeatButton.innerHTML = 'Start Repeat';
-    repeatButton.style.fontSize = '100%';
-    repeatButton.style.padding = '0px 0px 10px 10px';
-    composeBar.append(repeatButton);
+    repeatButton.style.fontSize = '25px';
+    repeatButton.style.padding = '20px';
+    sideBar.append(repeatButton);
     editRepeatButton();
 }
 
